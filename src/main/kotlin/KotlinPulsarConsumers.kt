@@ -18,10 +18,9 @@ fun main(args: Array<String>) {
     while (true) {
         val msg = consumer.receive()
 
-        println("$name - received msg: ${msg.value} from msgId: ${msg.messageId} time: ${Date(msg.publishTime)}")
-        Thread.sleep(50)
-        consumer.acknowledge(msg)
-
-        println("Acknowledged msgId: ${msg.messageId}")
+        println("$name - received Message[Value: ${msg.value} -- Id: ${msg.messageId} -- Time: ${Date(msg.publishTime)}]")
+//        Thread.sleep(50)
+//        consumer.acknowledge(msg)
+//        println("Acknowledged msgId: ${msg.messageId}")
     }
 }

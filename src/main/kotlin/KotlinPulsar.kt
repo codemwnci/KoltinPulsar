@@ -14,7 +14,7 @@ fun main() {
         launch(Dispatchers.Default) {
             println("Producer: About to send 500 numbers")
             repeat(500) {
-                //delay(Random.nextLong(5,50)) // put a random delay between each event, between 5-50ms
+                delay(Random.nextLong(5,50)) // put a random delay between each event, between 5-50ms
                 producer.sendAsync(Random.nextInt(0, 100).toString())
             }
         }
