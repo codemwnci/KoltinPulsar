@@ -11,6 +11,7 @@ fun main() {
     repeat(numMessages) {
         //Thread.sleep(Random.nextLong(500,1000)) // put a random delay between each event, between 5-50ms
         //producer.sendAsync(Random.nextInt(0, 100).toString())
+        Thread.sleep(10)
         producer.sendAsync(it.toString())
     }
 }

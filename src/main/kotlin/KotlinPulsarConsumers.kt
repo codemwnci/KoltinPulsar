@@ -11,16 +11,16 @@ fun main(args: Array<String>) {
 
     val consumer = client.newConsumer(Schema.STRING).topic("numbers")
         .subscriptionName(name)
-        .subscriptionType(SubscriptionType.Shared)
+        .subscriptionType(SubscriptionType.Failover)
         .subscribe()
 
     println("Waiting for first message")
     while (true) {
         val msg = consumer.receive()
+        consumer.acknowledge(msg)
 
         println("$name - received Message[Value: ${msg.value} -- Id: ${msg.messageId} -- Time: ${Date(msg.publishTime)}]")
 //        Thread.sleep(50)
-//        consumer.acknowledge(msg)
 //        println("Acknowledged msgId: ${msg.messageId}")
     }
 }
